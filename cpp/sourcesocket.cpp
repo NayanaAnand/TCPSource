@@ -262,10 +262,12 @@ int sourcesocket_i::serviceFunction() {
         if (server_) {
             numRead = server_->Read(&data_[data_length_],
                     data_capacity_ - data_length_);
+        LOG_INFO(sourcesocket_i, "Data Received" << data);
             data_length_ += numRead;
         } else if (client_) {
             numRead = client_->Read(&data_[data_length_],
                     data_capacity_ - data_length_);
+        LOG_INFO(sourcesocket_i, "Data Received" << data);
             data_length_ += numRead;
         } else {
             updateSocket();
